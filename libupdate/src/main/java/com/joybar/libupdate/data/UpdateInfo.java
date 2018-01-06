@@ -9,7 +9,7 @@ public class UpdateInfo {
     private int versionCode;
 
     private String download_url;
-    private int force_update;
+    private int forceUpdate;
 
     public String getVersion() {
         return version;
@@ -27,12 +27,12 @@ public class UpdateInfo {
         this.download_url = download_url;
     }
 
-    public int getForce_update() {
-        return force_update;
+    public int getForceUpdate() {
+        return forceUpdate;
     }
 
-    public void setForce_update(int force_update) {
-        this.force_update = force_update;
+    public void setForceUpdate(int forceUpdate) {
+        this.forceUpdate = forceUpdate;
     }
 
     public String getVersionName() {
@@ -58,7 +58,7 @@ public class UpdateInfo {
                 ", versionName='" + versionName + '\'' +
                 ", versionCode=" + versionCode +
                 ", download_url='" + download_url + '\'' +
-                ", force_update=" + force_update +
+                ", forceUpdate=" + forceUpdate +
                 '}';
     }
 }

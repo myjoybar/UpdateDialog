@@ -13,68 +13,25 @@ import com.joybar.libupdate.iml.IConfirmDialog;
 /**
  * Created by joybar on 6/17/16.
  */
-public class UpdateDialog extends Dialog implements
-        android.view.View.OnClickListener {
-    int layoutRes;// 布局文件
-    Context context;
+public class UpdateDialog extends Dialog implements android.view.View.OnClickListener {
+    private int layoutRes;
+    private Context context;
     private boolean mIsForceUpdate;
-    String tips;// 提示的内容。。。
+    private String content;
+    private String title;
 
-    String title;
-
-    /**
-     * 确定按钮
-     **/
     public Button confirmBtn;
-    /**
-     * 取消按钮
-     **/
     private Button cancelBtn;
-    // 内容
-    TextView txt_tips;
     TextView txt_title;
+    TextView txt_tips;
 
-    public UpdateDialog(Context context) {
-        super(context);
-        this.context = context;
-    }
-
-    /**
-     * 自定义布局的构造方法
-     *
-     * @param context
-     * @param resLayout
-     */
-    public UpdateDialog(Context context, int resLayout) {
-        super(context);
-        this.context = context;
-        this.layoutRes = resLayout;
-
-    }
-
-    /**
-     * 自定义主题及布局的构造方法
-     *
-     * @param context
-     * @param theme
-     * @param resLayout
-     */
-
-    public UpdateDialog(Context context, int theme, int resLayout, String tips, String title) {
-        super(context, theme);
-        this.context = context;
-        this.layoutRes = resLayout;
-        this.tips = tips;
-        this.title = title;
-
-    }
-
-    public UpdateDialog(Context context, String tips, String title, String content, boolean isForceUpdate) {
+    public UpdateDialog(Context context, String title, String content, boolean
+            isForceUpdate) {
         super(context, R.style.mystyle);
         this.context = context;
         this.layoutRes = R.layout.custom_confirmdialog;
-        this.tips = tips;
         this.title = title;
+        this.content = content;
         mIsForceUpdate = isForceUpdate;
     }
 
@@ -83,14 +40,13 @@ public class UpdateDialog extends Dialog implements
     IConfirmDialog onTouchingLetterChangedListener;
 
     // 指定事件。。。
-    public void setOnTouchingLetterChangedListener(
-            IConfirmDialog onTouchingLetterChangedListener) {
+    public void setOnTouchingLetterChangedListener(IConfirmDialog onTouchingLetterChangedListener) {
 
         this.onTouchingLetterChangedListener = onTouchingLetterChangedListener;
     }
 
-    public void setMyOnTouchingLetterChangedListener(
-            IConfirmDialog onTouchingLetterChangedListener) {
+    public void setMyOnTouchingLetterChangedListener(IConfirmDialog
+                                                             onTouchingLetterChangedListener) {
         this.onTouchingLetterChangedListener = onTouchingLetterChangedListener;
 
     }
@@ -108,12 +64,12 @@ public class UpdateDialog extends Dialog implements
         //	confirmBtn.setTextColor(R.color.systemcolor);
         //	cancelBtn.setTextColor(R.color.systemcolor);
 
-        // 显示提示文本
-        txt_tips = (TextView) findViewById(R.id.txt_tips);
-        txt_tips.setText(tips);
-
         txt_title = (TextView) findViewById(R.id.txt_title);
         txt_title.setText(title);
+
+        // 显示提示文本
+        txt_tips = (TextView) findViewById(R.id.txt_content);
+        txt_tips.setText(content);
 
         // 为按钮绑定点击事件监听器
         confirmBtn.setOnClickListener(this);
