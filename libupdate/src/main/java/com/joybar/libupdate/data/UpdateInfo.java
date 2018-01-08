@@ -1,38 +1,23 @@
 package com.joybar.libupdate.data;
 
+import java.util.List;
+
 /**
  * Created by joybar on 6/17/16.
  */
 public class UpdateInfo {
-    private String version;
-    private String versionName;
     private int versionCode;
+    private String versionName;
+    private String updateTitle;
+    private List<String> updateContentList;
+    private boolean isForceUpdate;
 
-    private String download_url;
-    private int forceUpdate;
-
-    public String getVersion() {
-        return version;
+    public int getVersionCode() {
+        return versionCode;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public String getDownload_url() {
-        return download_url;
-    }
-
-    public void setDownload_url(String download_url) {
-        this.download_url = download_url;
-    }
-
-    public int getForceUpdate() {
-        return forceUpdate;
-    }
-
-    public void setForceUpdate(int forceUpdate) {
-        this.forceUpdate = forceUpdate;
+    public void setVersionCode(int versionCode) {
+        this.versionCode = versionCode;
     }
 
     public String getVersionName() {
@@ -43,22 +28,38 @@ public class UpdateInfo {
         this.versionName = versionName;
     }
 
-    public int getVersionCode() {
-        return versionCode;
+    public String getUpdateTitle() {
+        return updateTitle;
     }
 
-    public void setVersionCode(int versionCode) {
-        this.versionCode = versionCode;
+    public void setUpdateTitle(String updateTitle) {
+        this.updateTitle = updateTitle;
+    }
+
+    public List<String> getUpdateContentList() {
+        return updateContentList;
+    }
+
+    public void setUpdateContentList(List<String> updateContentList) {
+        this.updateContentList = updateContentList;
+    }
+
+    public boolean isForceUpdate() {
+        return isForceUpdate;
+    }
+
+    public void setIsForceUpdate(boolean isForceUpdate) {
+        this.isForceUpdate = isForceUpdate;
     }
 
     @Override
     public String toString() {
         return "UpdateInfo{" +
-                "version='" + version + '\'' +
+                "versionCode=" + versionCode +
                 ", versionName='" + versionName + '\'' +
-                ", versionCode=" + versionCode +
-                ", download_url='" + download_url + '\'' +
-                ", forceUpdate=" + forceUpdate +
+                ", updateTitle='" + updateTitle + '\'' +
+                ", updateContentList=" + updateContentList +
+                ", isForceUpdate=" + isForceUpdate +
                 '}';
     }
 }
