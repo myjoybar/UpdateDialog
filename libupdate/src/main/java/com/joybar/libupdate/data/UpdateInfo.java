@@ -1,10 +1,13 @@
 package com.joybar.libupdate.data;
 
+import android.support.annotation.Keep;
+
 import java.util.List;
 
 /**
  * Created by joybar on 6/17/16.
  */
+@Keep
 public class UpdateInfo {
     private int versionCode;
     private String versionName;
